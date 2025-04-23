@@ -8,3 +8,13 @@ body{
 body::-webkit-scrollbar {
     display: none;              
 }
+
+/* Importing the font */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+  
+/* Removing the link showing on the bottom when hovering the button on header */
+a{
+    text-decoration: none;
+}

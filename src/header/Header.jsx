@@ -1,56 +1,32 @@
-import React from "react";
-import { useState } from "react";
-import './Header.css'
-function Header(){
+import React, { useState } from "react";
+import './Header.css';
 
-    const [isMobile , setisMobile] = useState(false)
+function Header() {
+  const [isMobile, setIsMobile] = useState(false);
 
-    function toggleMobile(){
-        setisMobile(!isMobile)
-    }
+  const toggleMobile = () => {
+    setIsMobile(!isMobile);
+  };
 
+  return (
+    <div className="HeaderContainer">
+      <div className={`hamburger ${isMobile ? 'active' : ''}`} onClick={toggleMobile}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
-    return(
-        <>
-            <div className="HeaderContainer">
-                <div className={`nav-section ${isMobile ? 'active' : ''}`}>
-                    <li>
-                        <a href="/">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/About">
-                            About
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/Skills">
-                            Skills
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/Projects">
-                            Projects
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/Contacct">
-                            Contact Me
-                        </a>
-                    </li>
-                </div>
-
-                <div className="nav-bar" onClick={toggleMobile}>
-                    <span className="bar" ></span>
-                    <span className="bar" ></span>
-                    <span className="bar" ></span>
-                </div>
-
-            </div>
-        </>
-    )
-
+      <div className={`nav-section ${isMobile ? 'active' : ''}`}>
+        <ul>
+          <li><button className="nav-button" onClick={() => window.location.href = '/home'}>Home</button></li>
+          <li><button className="nav-button" onClick={() => window.location.href = '/about'}>About</button></li>
+          <li><button className="nav-button" onClick={() => window.location.href = '/skills'}>Skills</button></li>
+          <li><button className="nav-button" onClick={() => window.location.href = '/projects'}>Projects</button></li>
+          <li><button className="nav-button" onClick={() => window.location.href = '/contact'}>Contact Me</button></li>
+        </ul>
+      </div>
+    </div>
+  );
 }
 
-export default Header
+export default Header;
