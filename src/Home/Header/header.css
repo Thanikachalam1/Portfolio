@@ -5,7 +5,8 @@
     box-sizing: border-box;
   }
   
-  body {
+  body, html {
+    height: 100%;
     font-family: 'Segoe UI', sans-serif;
     background-color: #121212; /* Dark background */
     color: #E0E0E0; /* Light gray text */
@@ -13,12 +14,15 @@
   
   /* Header Container */
   .HeaderContainer {
+    position: fixed;
+    top: 0;  /* Ensure it's fixed at the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
     background-color: #1E1E1E; /* Darker header background */
     padding: 18px 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     z-index: 100;
   }
@@ -102,7 +106,8 @@
   
     .HeaderContainer {
       justify-content: start;
-      align-items: start;
+      align-items: center;
+      height: 74px;
     }
   
     .nav-section {
@@ -144,5 +149,11 @@
       background-color: #FF5722; /* Brighter orange for hover */
       color: #ffffff;
     }
+  }
+  
+  /* Adding margin to the rest of the content */
+  .main-content {
+    margin-top: 74px; /* Match the height of the header */
+    padding: 20px;
   }
   
