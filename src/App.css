@@ -10,10 +10,12 @@
     flex-direction: column;
   }
   
-  .Home,
-.About {
+.Home,
+.About,
+.Skills,
+.Projects,
+.Contact {
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  height: calc(100vh - 74px);
-  padding-top: 74px; /* Pushes content down instead of moving the whole section */
+  height: 100vh;
 }

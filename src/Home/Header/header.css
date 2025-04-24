@@ -18,7 +18,7 @@
     top: 0;  /* Ensure it's fixed at the top */
     left: 0; /* Align to the left */
     right: 0; /* Align to the right */
-    background-color: #1E1E1E; /* Darker header background */
+    background-color: transparent; /* Darker header background */
     padding: 18px 30px;
     display: flex;
     justify-content: center;
