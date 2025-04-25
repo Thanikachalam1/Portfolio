@@ -6,6 +6,7 @@ import Skills from './Skills/skills';
 import Projects from './Projects/projects';
 import Contact from './Contact/contact';
 import ParticlesBackground from './Background/background';
+import LazyCursor from './LazyCursor/LazyCursor';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <ParticlesBackground />
         </div>
         <Header />
-
+        <LazyCursor />
         <div className="content">
           <div className="Home">
             <Home />
