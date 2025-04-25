@@ -5,33 +5,37 @@ import About from './About/about';
 import Skills from './Skills/skills';
 import Projects from './Projects/projects';
 import Contact from './Contact/contact';
+import ParticlesBackground from './Background/background';
+
 function App() {
   return (
     <div className="App">
-      <Header />
-      <div className="content">
+      
+        <ParticlesBackground />
+        <Header />
 
-        <div className="Home">
-          <Home />
+        <div className="content">
+          <div className="Home">
+            <Home />
+          </div>
+
+          <div className="About">
+            <About />
+          </div>
+
+          <div className='Skills'>
+            <Skills />
+          </div>
+
+          <div className='Projects'>
+            <Projects />
+          </div>
+
+          <div className='Contact'>
+            <Contact />
+          </div>
         </div>
-
-        <div className="About">
-          <About />
-        </div>
-
-        <div className='Skills'>
-          <Skills />
-        </div>
-
-        <div className='Projects'>
-          <Projects />
-        </div>
-
-        <div className='Contact'>
-          <Contact />
-        </div>
-
-      </div>
+      
     </div>
   );
 }
