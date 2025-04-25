@@ -2,7 +2,8 @@
 body{
     overflow: auto;
     -ms-overflow-style: none;     
-    scrollbar-width: none;       
+    scrollbar-width: none; 
+    cursor: none;      
 }
   
 body::-webkit-scrollbar {

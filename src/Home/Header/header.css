@@ -45,7 +45,7 @@
     border: none;
     font-size: 1rem;
     color: #E0E0E0; /* Light gray text */
-    cursor: pointer;
+    cursor: none;
     padding: 10px 16px;
     border-radius: 10px;
     transition: all 0.3s ease;
