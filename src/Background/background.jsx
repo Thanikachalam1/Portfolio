@@ -13,9 +13,9 @@ const ParticlesBackground = () => {
     "autoPlay": true,
     "background": {
       "color": {
-        "value": "#0d47a1"
+        "value": "#343434"
       },
-      "opacity": 1
+      "opacity": 0.5
     },
     "fullScreen": {
       "enable": true,
@@ -29,14 +29,14 @@ const ParticlesBackground = () => {
         "onHover": {
           "enable": true,
           "mode": "grab",
-          "parallax": { "enable": true, "force": 60, "smooth": 10 }
+          "parallax": { "enable": true, "force": 60, "smooth": 20 }
         },
         "resize": { "enable": true, "delay": 0.5 }
       },
       "modes": {
         "grab": {
           "distance": 400,
-          "links": { "opacity": 1 }
+          "links": { "opacity": 0.1 }
         },
         "push": {
           "quantity": 4
@@ -47,9 +47,9 @@ const ParticlesBackground = () => {
       "color": { "value": "#ffffff" },
       "links": {
         "color": { "value": "#ffffff" },
-        "distance": 150,
+        "distance": 100,
         "enable": true,
-        "opacity": 0.4,
+        "opacity": 0.2,
         "width": 1
       },
       "move": {
@@ -62,7 +62,7 @@ const ParticlesBackground = () => {
         "value": 100
       },
       "opacity": {
-        "value": { "min": 0.1, "max": 0.5 },
+        "value": { "min": 0.1, "max": 0.3 },
         "animation": {
           "enable": true,
           "speed": 3,

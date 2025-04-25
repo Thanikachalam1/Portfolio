@@ -11,7 +11,9 @@ function App() {
   return (
     <div className="App">
       
-        <ParticlesBackground />
+        <div className='background'>
+          <ParticlesBackground />
+        </div>
         <Header />
 
         <div className="content">
