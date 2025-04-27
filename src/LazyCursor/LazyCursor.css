@@ -14,3 +14,9 @@
     mix-blend-mode: difference;
   }
   
+
+@media (max-width : 768px){
+  .lazy-cursor{
+    display: none;
+  }
+}

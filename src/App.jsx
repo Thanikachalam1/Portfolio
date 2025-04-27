@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import './App.css';
 import Header from './Home/header/Header';
 import Home from './Home/home';
@@ -7,39 +8,44 @@ import Projects from './Projects/projects';
 import Contact from './Contact/contact';
 import ParticlesBackground from './Background/background';
 import LazyCursor from './LazyCursor/LazyCursor';
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+
+function ScrollToSection() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const sectionId = location.pathname.substring(1); // Get section ID from URL
+
+    if (sectionId) {
+      const targetElement = document.getElementById(sectionId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  }, [location]);
+
+  return null;
+}
 
 function App() {
   return (
-    <div className="App">
-      
-        <div className='background'>
+    <Router>
+      <ScrollToSection /> {/* Scrolls to the section based on URL */}
+      <div className="App">
+        <div className="background">
           <ParticlesBackground />
         </div>
         <Header />
         <LazyCursor />
         <div className="content">
-          <div className="Home">
-            <Home />
-          </div>
-
-          <div className="About">
-            <About />
-          </div>
-
-          <div className='Skills'>
-            <Skills />
-          </div>
-
-          <div className='Projects'>
-            <Projects />
-          </div>
-
-          <div className='Contact'>
-            <Contact />
-          </div>
+          <Home />
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
         </div>
-      
-    </div>
+      </div>
+    </Router>
   );
 }
 

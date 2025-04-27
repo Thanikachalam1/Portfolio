@@ -1,3 +1,5 @@
 .skills{
     height: 100vh;
+    scroll-snap-type: start;
+    
 }

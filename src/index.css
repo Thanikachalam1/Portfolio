@@ -1,4 +1,4 @@
-/* Hiding the scrollbar */
+
 body{
     overflow: auto;
     -ms-overflow-style: none;     
@@ -10,7 +10,7 @@ body::-webkit-scrollbar {
     display: none;              
 }
 
-/* Importing the font */
+
 body {
     font-family: 'Roboto', sans-serif;
 }

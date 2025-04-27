@@ -1,44 +1,44 @@
 .App {
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    height: 100vh;
-    scroll-behavior: smooth;
-    position: relative;
-  }
-  
-  .content {
-    display: flex;
-    flex-direction: column;
-  }
-  
+  overflow-y: scroll; /* Enable vertical scrolling */
+  scroll-snap-type: y mandatory; /* Vertical scroll snap */
+  scroll-behavior: smooth; /* Smooth scrolling for navigation */
+  position: relative;
+  height: 100vh; /* Full viewport height */
+}
+
+.content {
+  display: flex;
+  flex-direction: column; /* Stack sections vertically */
+}
+
 .Home,
 .About,
 .Skills,
 .Projects,
 .Contact {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  height: 100vh;
+  height: 100vh; /* Full viewport height for each section */
+  scroll-snap-align: start; /* Ensure each section snaps to the top */
+  scroll-snap-stop: always; /* Force snap on specific sections */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
 }
 
-body, html, #root {
+body,
+html,
+#root {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: transparent; 
-  overflow-x: hidden;
+  background-color: transparent;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-.background{
-  position: 'fixed';
-    top: 0;
-    left: 0;
-    width: '100%';
-    height: '100%';
-    z-index: -1; 
-}
-
-.content > div {
-  position: relative; /* make sure it's layered correctly */
-  z-index: 1;
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
