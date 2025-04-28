@@ -5,3 +5,28 @@
     align-items: center;
     justify-content: center;
 }
+
+.intro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.name{
+    font-size: 35px;
+}
+
+.hi{
+    color: red;
+}
+
+.roles{
+    font-size: 20px;
+}
+
+.specialization{
+    font-weight: 2000;
+    font-size: 30px;
+}
