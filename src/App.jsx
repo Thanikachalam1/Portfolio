@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import './App.css';
 import Header from './Home/header/Header';
 import Home from './Home/home';
@@ -10,16 +10,16 @@ import ParticlesBackground from './Background/background';
 import LazyCursor from './LazyCursor/LazyCursor';
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
+// Scroll to section when route changes (optional enhancement)
 function ScrollToSection() {
   const location = useLocation();
 
   useEffect(() => {
-    const sectionId = location.pathname.substring(1); // Get section ID from URL
-
+    const sectionId = location.pathname.substring(1); // remove leading slash
     if (sectionId) {
-      const targetElement = document.getElementById(sectionId);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }
   }, [location]);
@@ -27,24 +27,75 @@ function ScrollToSection() {
   return null;
 }
 
-function App() {
+// Main app content with scroll tracking
+function AppContent() {
+  const [activeSection, setActiveSection] = useState("home");
+  useEffect(() => {
+    // Disable right-click
+    const handleContextMenu = (e) => e.preventDefault();
+    document.addEventListener("contextmenu", handleContextMenu);
+
+    // Disable copy
+    const handleCopy = (e) => e.preventDefault();
+    document.addEventListener("copy", handleCopy);
+
+    // Disable text selection
+    const handleSelectStart = (e) => e.preventDefault();
+    document.addEventListener("selectstart", handleSelectStart);
+
+    return () => {
+      document.removeEventListener("contextmenu", handleContextMenu);
+      document.removeEventListener("copy", handleCopy);
+      document.removeEventListener("selectstart", handleSelectStart);
+    };
+  }, []);
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.6
+      }
+    );
+
+    sections.forEach(section => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <Router>
-      <ScrollToSection /> {/* Scrolls to the section based on URL */}
+    <>
+      <ScrollToSection />
       <div className="App">
         <div className="background">
           <ParticlesBackground />
         </div>
-        <Header />
+        <Header activeSection={activeSection} />
         <LazyCursor />
         <div className="content">
-          <Home />
-          <About />
-          <Skills />
-          <Projects />
-          <Contact />
+          <section id="home"><Home /></section>
+          <section id="about"><About /></section>
+          <section id="skills"><Skills /></section>
+          <section id="projects"><Projects /></section>
+          <section id="contact"><Contact /></section>
         </div>
       </div>
+    </>
+  );
+}
+
+// Router wrapper
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/*" element={<AppContent />} />
+      </Routes>
     </Router>
   );
 }

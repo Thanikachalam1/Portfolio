@@ -1,163 +1,184 @@
 /* Base styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #121212; /* Dark background */
+  color: #E0E0E0; /* Light gray text */
+}
+
+/* Header Container */
+.HeaderContainer {
+  position: fixed;
+  top: 0;  
+  left: 0; 
+  right: 0; 
+  background-color: transparent; 
+  padding: 18px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+/* Navigation section */
+.nav-section {
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-section ul {
+  display: flex;
+  gap: 22px;
+  list-style: none;
+}
+
+/* Navigation button with underline animation */
+.nav-button {
+  position: relative;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #E0E0E0;
+  padding: 10px 16px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  padding-bottom: 15px;
+}
+
+.nav-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  width: 0%;
+  height: 2px;
+  background-color: red;
+  transition: width 0.3s ease;
+}
+
+.nav-button:hover::after,
+.nav-button.active::after {
+  width: 100%;
+}
+
+.nav-button:hover {
+  color: #ffffff;
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  width: 28px;
+  height: 22px;
+  position: relative;
+  transition: all 0.4s ease;
+  z-index: 200;
+  cursor: pointer;
+}
+
+.hamburger span {
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: red;
+  left: 0;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 9px; }
+.hamburger span:nth-child(3) { top: 18px; }
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 9px;
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 9px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
   }
-  
-  body, html {
-    height: 100%;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #121212; /* Dark background */
-    color: #E0E0E0; /* Light gray text */
-  }
-  
-  /* Header Container */
+
   .HeaderContainer {
+    justify-content: start;
+    height: 74px;
+  }
+
+  .nav-section {
     position: fixed;
-    top: 0;  
-    left: 0; 
-    right: 0; 
-    background-color: transparent; 
-    padding: 18px 30px;
-    display: flex;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #121212;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    z-index: 999;
-    text-combine-upright: none;
-  }
-  
-  /* Navigation section */
-  .nav-section {
-    display: flex;
-    align-items: center;
-    transition: all 0.3s ease-in-out;
-    text-decoration: none;
-  }
-  
-  .nav-section ul {
-    display: flex;
-    gap: 22px;
-    list-style: none;
-    text-decoration: none;
-  }
-  
-  .nav-button {
-    background: none;
-    border: none;
-    font-size: 1rem;
-    color: #E0E0E0; /* Light gray text */
-    cursor: none;
-    padding: 10px 16px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-  }
-  
-  /* Button hover effects */
-  .nav-button:hover {
-    background-color: red; /* Bright orange for hover */
-    color: #ffffff;
-    transform: translateY(-2px) scale(1.05);
-  }
-  
-  /* Hamburger menu */
-  .hamburger {
-    display: none;
-    width: 28px;
-    height: 22px;
-    position: relative;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    z-index: 200;
-  }
-  
-  .hamburger span {
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    background-color: #FF9800; /* Orange bars */
-    left: 0;
-    border-radius: 2px;
-    transition: all 0.4s ease;
-  }
-  
-  .hamburger span:nth-child(1) { top: 0; }
-  .hamburger span:nth-child(2) { top: 9px; }
-  .hamburger span:nth-child(3) { top: 18px; }
-  
-  /* Unique diagonal cross animation */
-  .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg);
-    top: 9px;
-  }
-  
-  .hamburger.active span:nth-child(2) {
+    gap: 24px;
     opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: all 0.4s ease-in-out;
+    z-index: 100;
   }
-  
-  .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg);
-    top: 9px;
+
+  .nav-section.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    
   }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .hamburger {
-      display: block;
-    }
-  
-    .HeaderContainer {
-      justify-content: start;
-      align-items: center;
-      height: 74px;
-    }
-  
-    .nav-section {
-      position: absolute;
-      top: 64px;
-      left: 0;
-      width: 100%;
-      background-color: transparent;
-      flex-direction: column;
-      align-items: center;
-      padding: 24px 0;
-      gap: 20px;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(-20px);
-      transition: all 0.4s ease-in-out;
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-    }
-  
-    .nav-section.active {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-  
-    .nav-section ul {
-      flex-direction: column;
-      gap: 16px;
-    }
-  
-    .nav-button {
-      width: 100%;
-      text-align: center;
-      padding: 12px 0;
-      color: #E0E0E0;
-    }
-  
-    .nav-button:hover {
-      background-color: #FF5722; /* Brighter orange for hover */
-      color: #ffffff;
-    }
+
+  .nav-section ul {
+    flex-direction: column;
+    gap: 24px;
+    list-style: none;
+    
   }
-  
-  /* Adding margin to the rest of the content */
-  .main-content {
-    margin-top: 74px; /* Match the height of the header */
-    padding: 20px;
+
+  .nav-section ul :active {
+    color: white;
   }
-  
+
+  .nav-button {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    color: #E0E0E0;
+    font-size: 1.2rem;
+  }
+
+  .nav-button:hover {
+    background-color: red;
+    color: #ffffff;
+  }
+}
+
+/* Content spacing */
+.main-content {
+  margin-top: 74px;
+  padding: 20px;
+}
