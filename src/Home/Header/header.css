@@ -32,12 +32,14 @@ body, html {
   display: flex;
   align-items: center;
   transition: all 0.3s ease-in-out;
+  
 }
 
 .nav-section ul {
   display: flex;
   gap: 22px;
   list-style: none;
+  
 }
 
 /* Navigation button with underline animation */
@@ -54,6 +56,7 @@ body, html {
   cursor: pointer;
   overflow: hidden;
   padding-bottom: 15px;
+  font-size: 18px;
 }
 
 .nav-button::after {
@@ -180,5 +183,5 @@ body, html {
 /* Content spacing */
 .main-content {
   margin-top: 74px;
-  padding: 20px;
+  padding: 21px;
 }
