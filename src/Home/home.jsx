@@ -14,14 +14,17 @@ const containerRef = useRef(null);
 
       
         <h1 className="name"><span className="hi">Hi, I'm </span>Thanikachalam</h1>
-        <TrueFocus 
-sentence="Developer Student Content-Creator"
-manualMode={false}
-blurAmount={5}
-borderColor="red"
-animationDuration={0.5}
-pauseBetweenAnimations={1}
-/>
+          <div className="roles">
+            <TrueFocus 
+              sentence="Developer Student Content-Creator"
+              manualMode={false}
+              blurAmount={5}
+              borderColor="red"
+              animationDuration={0.5}
+              pauseBetweenAnimations={1}
+            />
+          </div>
+          
         <div className="specialization">
         <div
 ref={containerRef}
