@@ -32,10 +32,11 @@
 }
 
 @media (max-width : 768px){
-    .roles{
-        
-    }
     .specialization{
         font-size: 20px;
     }
+    .name{
+        font-size: 30px;
+    }
 }
+
