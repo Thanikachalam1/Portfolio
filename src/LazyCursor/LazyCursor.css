@@ -1,22 +1,26 @@
-.lazy-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 15px;
-    height: 15px;
-    background-color: white;
-    border: 2px solid red;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 99999999;
-    transform: translate3d(0, 0, 0);
-    transition: background-color 0.2s ease;
-    mix-blend-mode: difference;
-  }
-  
+/* Hide the default cursor */
+body {
+  cursor: none;
+}
 
-@media (max-width : 768px){
-  .lazy-cursor{
-    display: none;
-  }
+/* Custom lazy cursor */
+.lazy-cursor {
+  width: 18px;
+  height: 18px;
+  background-color:#FFA500;
+  border: 2px solid black;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+}
+a:hover ~ .lazy-cursor,
+button:hover ~ .lazy-cursor {
+  transform: scale(1.5);
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.8);
 }

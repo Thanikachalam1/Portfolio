@@ -15,7 +15,7 @@ const ParticlesBackground = () => {
       "color": {
         "value": "#343434"
       },
-      "opacity": 0.5
+      "opacity": 0.4
     },
     "fullScreen": {
       "enable": true,
@@ -39,7 +39,7 @@ const ParticlesBackground = () => {
           "links": { "opacity": 0.1 }
         },
         "push": {
-          "quantity": 4
+          "quantity": 5
         }
       }
     },
@@ -49,7 +49,7 @@ const ParticlesBackground = () => {
         "color": { "value": "#ffffff" },
         "distance": 100,
         "enable": true,
-        "opacity": 0.2,
+        "opacity": 0.3,
         "width": 1
       },
       "move": {

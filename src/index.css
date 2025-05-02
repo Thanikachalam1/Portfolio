@@ -3,7 +3,7 @@ body{
     overflow: auto;
     -ms-overflow-style: none;     
     scrollbar-width: none; 
-    cursor: none;      
+    cursor: none !important ;
 }
   
 body::-webkit-scrollbar {

@@ -16,10 +16,10 @@ const containerRef = useRef(null);
         <h1 className="name"><span className="hi">Hi, I'm </span>Thanikachalam</h1>
           <div className="roles">
             <TrueFocus 
-              sentence="Developer Student Content-Creator"
+              sentence="Developer Content-Creator"
               manualMode={false}
               blurAmount={5}
-              borderColor="red"
+              borderColor="#FFA500"
               animationDuration={0.5}
               pauseBetweenAnimations={1}
             />

@@ -1,4 +1,3 @@
-/* Base styles */
 * {
   margin: 0;
   padding: 0;
@@ -10,11 +9,13 @@ body, html {
   font-family: 'Segoe UI', sans-serif;
   background-color: #121212; /* Dark background */
   color: #E0E0E0; /* Light gray text */
+  cursor: none;
 }
 
-/* Header Container */
+
 .HeaderContainer {
   position: fixed;
+  cursor: none;
   top: 0;  
   left: 0; 
   right: 0; 
@@ -27,22 +28,22 @@ body, html {
   z-index: 999;
 }
 
-/* Navigation section */
+
 .nav-section {
   display: flex;
   align-items: center;
   transition: all 0.3s ease-in-out;
-  
+  cursor: none;
 }
 
 .nav-section ul {
   display: flex;
   gap: 22px;
   list-style: none;
-  
+  cursor: none;
 }
 
-/* Navigation button with underline animation */
+
 .nav-button {
   position: relative;
   background: none;
@@ -53,7 +54,6 @@ body, html {
   border-radius: 10px;
   transition: all 0.3s ease;
   text-decoration: none;
-  cursor: pointer;
   overflow: hidden;
   padding-bottom: 15px;
   font-size: 18px;
@@ -66,7 +66,7 @@ body, html {
   bottom: 4px;
   width: 0%;
   height: 2px;
-  background-color: red;
+  background-color: #FFA500;
   transition: width 0.3s ease;
 }
 
@@ -78,9 +78,10 @@ body, html {
 .nav-button:hover {
   color: #ffffff;
   transform: translateY(-2px) scale(1.05);
+  cursor: none;
 }
 
-/* Hamburger menu */
+
 .hamburger {
   display: none;
   width: 28px;
@@ -88,14 +89,14 @@ body, html {
   position: relative;
   transition: all 0.4s ease;
   z-index: 200;
-  cursor: pointer;
+  
 }
 
 .hamburger span {
   position: absolute;
   height: 3px;
   width: 100%;
-  background-color: red;
+  background-color: #FFA500;
   left: 0;
   border-radius: 2px;
   transition: all 0.4s ease;
@@ -119,7 +120,7 @@ body, html {
   top: 9px;
 }
 
-/* Responsive Styles */
+
 @media (max-width: 768px) {
   .hamburger {
     display: block;
@@ -150,7 +151,7 @@ body, html {
 
   .nav-section.active {
     opacity: 1;
-    pointer-events: auto;
+    
     transform: translateY(0);
     
   }
@@ -175,13 +176,17 @@ body, html {
   }
 
   .nav-button:hover {
-    background-color: red;
+    background-color: #FFA500;
     color: #ffffff;
   }
 }
 
-/* Content spacing */
+
 .main-content {
   margin-top: 74px;
   padding: 21px;
+}
+
+*, *::before, *::after {
+  cursor: none !important;
 }
