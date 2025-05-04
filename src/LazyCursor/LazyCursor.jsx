@@ -29,8 +29,26 @@ const LazyCursor = () => {
 
     animate();
 
+    const hoverElements = document.querySelectorAll("a, button, li");
+
+    const addHoverClass = () => {
+      cursorRef.current?.classList.add("cursor-hover");
+    };
+    const removeHoverClass = () => {
+      cursorRef.current?.classList.remove("cursor-hover");
+    };
+
+    hoverElements.forEach((el) => {
+      el.addEventListener("mouseenter", addHoverClass);
+      el.addEventListener("mouseleave", removeHoverClass);
+    });
+
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
+      hoverElements.forEach((el) => {
+        el.removeEventListener("mouseenter", addHoverClass);
+        el.removeEventListener("mouseleave", removeHoverClass);
+      });
     };
   }, []);
 

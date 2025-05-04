@@ -3,11 +3,11 @@ body {
   cursor: none;
 }
 
-/* Custom lazy cursor */
+/* Custom animated cursor */
 .lazy-cursor {
   width: 18px;
   height: 18px;
-  background-color:#FFA500;
+  background-color: #FFA500;
   border: 2px solid black;
   border-radius: 50%;
   position: fixed;
@@ -16,11 +16,12 @@ body {
   pointer-events: none;
   z-index: 9999;
   mix-blend-mode: difference;
-  transition: background-color 0.3s ease, transform 0.1s ease;
+  transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.2s ease;
   box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
 }
-a:hover ~ .lazy-cursor,
-button:hover ~ .lazy-cursor {
-  transform: scale(1.5);
+
+/* Hover effect on links, buttons, and list items */
+.lazy-cursor.cursor-hover {
+  transform: scale(2.5);
   box-shadow: 0 0 12px rgba(255, 0, 0, 0.8);
 }
