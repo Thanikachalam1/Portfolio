@@ -2,6 +2,7 @@ import React from "react";
 import './home.css';
 import TrueFocus from "../Animations/TrueFocus";
 import VariableProximity from "../Animations/VariableProximity";
+import FuzzyText from "../Animations/ScrollFloat";
 import { useRef } from "react";
 
 function Home(){
@@ -13,7 +14,13 @@ const containerRef = useRef(null);
       <div className="intro">
 
       
-        <h1 className="name"><span className="hi">Hi, I'm </span>Thanikachalam</h1>
+        <h1 className="name"><span className="hi">
+          
+        Hi I'm 
+          
+          
+          
+          </span> Thanikachalam</h1>
           <div className="roles">
             <TrueFocus 
               sentence="Developer Content-Creator"

@@ -22,7 +22,7 @@ function Header({ activeSection }) {
         <ul>
           <li><Link to="/home" className={`nav-button ${isActive('home')}`} onClick={closeMenu}>Home</Link></li>
           <li><Link to="/about" className={`nav-button ${isActive('about')}`} onClick={closeMenu}>About</Link></li>
-          <li><Link to="/skills" className={`nav-button ${isActive('skills')}`} onClick={closeMenu}>Skills</Link></li>
+          
           <li><Link to="/projects" className={`nav-button ${isActive('projects')}`} onClick={closeMenu}>Projects</Link></li>
           <li><Link to="/contact" className={`nav-button ${isActive('contact')}`} onClick={closeMenu}>Contact Me</Link></li>
         </ul>

@@ -1,9 +1,8 @@
-/* Hide the default cursor */
+/* Keep these as is */
 body {
   cursor: none;
 }
 
-/* Custom animated cursor */
 .lazy-cursor {
   width: 18px;
   height: 18px;
@@ -16,12 +15,17 @@ body {
   pointer-events: none;
   z-index: 9999;
   mix-blend-mode: difference;
-  transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  transition: transform 0.12s ease, background-color 0.3s ease, box-shadow 0.2s ease;
   box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
 }
 
-/* Hover effect on links, buttons, and list items */
 .lazy-cursor.cursor-hover {
   transform: scale(2.5);
   box-shadow: 0 0 12px rgba(255, 0, 0, 0.8);
+}
+
+@media (max-width : 768px) {
+  .lazy-cursor{
+    display: none;
+  }
 }

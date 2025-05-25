@@ -7,42 +7,35 @@
 body, html {
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #121212; /* Dark background */
-  color: #E0E0E0; /* Light gray text */
+  background-color: #121212;
+  color: #E0E0E0;
   cursor: none;
 }
 
-
 .HeaderContainer {
   position: fixed;
-  cursor: none;
-  top: 0;  
-  left: 0; 
-  right: 0; 
-  background-color: transparent; 
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
   padding: 18px 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   z-index: 999;
 }
-
 
 .nav-section {
   display: flex;
   align-items: center;
   transition: all 0.3s ease-in-out;
-  cursor: none;
 }
 
 .nav-section ul {
   display: flex;
   gap: 22px;
   list-style: none;
-  cursor: none;
 }
-
 
 .nav-button {
   position: relative;
@@ -50,15 +43,15 @@ body, html {
   border: none;
   font-size: 1rem;
   color: #E0E0E0;
-  padding: 10px 16px;
+  padding: 10px 16px 15px;
   border-radius: 10px;
   transition: all 0.3s ease;
   text-decoration: none;
-  overflow: hidden;
-  padding-bottom: 15px;
   font-size: 18px;
+  overflow: hidden;
 }
 
+/* Hover/active underline effect */
 .nav-button::after {
   content: "";
   position: absolute;
@@ -78,18 +71,15 @@ body, html {
 .nav-button:hover {
   color: #ffffff;
   transform: translateY(-2px) scale(1.05);
-  cursor: none;
 }
-
 
 .hamburger {
   display: none;
   width: 28px;
   height: 22px;
   position: relative;
-  transition: all 0.4s ease;
-  z-index: 200;
-  
+  z-index: 1100;
+  cursor: pointer;
 }
 
 .hamburger span {
@@ -120,7 +110,6 @@ body, html {
   top: 9px;
 }
 
-
 @media (max-width: 768px) {
   .hamburger {
     display: block;
@@ -146,41 +135,39 @@ body, html {
     pointer-events: none;
     transform: translateY(-20px);
     transition: all 0.4s ease-in-out;
-    z-index: 100;
+    z-index: 1000;
   }
 
   .nav-section.active {
     opacity: 1;
-    
+    pointer-events: auto;
     transform: translateY(0);
-    
   }
 
   .nav-section ul {
     flex-direction: column;
     gap: 24px;
     list-style: none;
-    
-  }
-
-  .nav-section ul :active {
-    color: white;
   }
 
   .nav-button {
     width: 100%;
     text-align: center;
     padding: 12px 0;
-    color: #E0E0E0;
     font-size: 1.2rem;
+    position: relative;
   }
 
   .nav-button:hover {
-    background-color: #FFA500;
+    background-color: transparent;
     color: #ffffff;
   }
-}
 
+  .nav-button::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
 
 .main-content {
   margin-top: 74px;

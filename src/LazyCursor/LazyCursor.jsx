@@ -7,11 +7,23 @@ const LazyCursor = () => {
   const mouseY = useRef(0);
   const posX = useRef(0);
   const posY = useRef(0);
+  const scaleTimeout = useRef(null);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
       mouseX.current = e.clientX;
       mouseY.current = e.clientY;
+
+      // Scale up cursor briefly on move
+      if (cursorRef.current) {
+        cursorRef.current.style.transform += " scale(1.4)";
+        clearTimeout(scaleTimeout.current);
+        scaleTimeout.current = setTimeout(() => {
+          if (cursorRef.current) {
+            cursorRef.current.style.transform = cursorRef.current.style.transform.replace(" scale(1.4)", "");
+          }
+        }, 100); // Reset scale after 100ms
+      }
     };
 
     document.addEventListener("mousemove", handleMouseMove);
@@ -30,13 +42,8 @@ const LazyCursor = () => {
     animate();
 
     const hoverElements = document.querySelectorAll("a, button, li");
-
-    const addHoverClass = () => {
-      cursorRef.current?.classList.add("cursor-hover");
-    };
-    const removeHoverClass = () => {
-      cursorRef.current?.classList.remove("cursor-hover");
-    };
+    const addHoverClass = () => cursorRef.current?.classList.add("cursor-hover");
+    const removeHoverClass = () => cursorRef.current?.classList.remove("cursor-hover");
 
     hoverElements.forEach((el) => {
       el.addEventListener("mouseenter", addHoverClass);

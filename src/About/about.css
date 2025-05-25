@@ -1,4 +1,96 @@
-.About{
-    height: 100vh;
-    scroll-snap-type: start;
+:root {
+  --primary: transparent;
+  --secondary: #fbbf24;
+  --bg: #0f172a;
+  --bg-card: #1e293b;
+  --text-main: #f1f5f9;
+  --text-sub: #cbd5e1;
+  --chip-bg: #334155;
+  --chip-hover: #475569;
+}
+
+.About {
+  min-height: 100vh;
+  
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  scroll-snap-align: start;
+}
+
+.about-container {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.heading {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #FFA500;
+}
+
+.about-bubble {
+  
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--text-sub);
+}
+
+.about-bubble p {
+  margin-bottom: 1rem;
+}
+
+.about-bubble p:last-child {
+  margin-bottom: 0;
+}
+
+.skills-section h3 {
+  font-size: 1.4rem;
+  color: var(--secondary);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.tech-scroll {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.tech-chip {
+  background: var(--chip-bg);
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  border-radius: 9999px;
+  color: var(--text-main);
+  transition: background 0.3s ease;
+}
+
+.tech-chip:hover {
+  background: var(--chip-hover);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .heading {
+    font-size: 2rem;
   }
+
+  .about-bubble {
+    font-size: 1rem;
+  }
+
+  .tech-chip {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+}

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import './App.css';
-import Header from './Home/header/Header';
+import Header from "./Home/Header/header";
 import Home from './Home/home';
 import About from './About/about';
-import Skills from './Skills/skills';
+
 import Projects from './Projects/projects';
 import Contact from './Contact/contact';
 import ParticlesBackground from './Background/background';
 import LazyCursor from './LazyCursor/LazyCursor';
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { ssrImportKey } from "vite/module-runner";
 
 // Scroll to section when route changes (optional enhancement)
 function ScrollToSection() {
@@ -80,7 +81,7 @@ function AppContent() {
         <div className="content">
           <section id="home"><Home /></section>
           <section id="about"><About /></section>
-          <section id="skills"><Skills /></section>
+          
           <section id="projects"><Projects /></section>
           <section id="contact"><Contact /></section>
         </div>
