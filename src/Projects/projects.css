@@ -1,52 +1,27 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 500vh; /* enough height to scroll vertically */
-  background: #0f172a;
-  font-family: sans-serif;
-  color: #f1f5f9;
-}
-
 .Projects {
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  background: #0f172a;
-  padding: 0 2rem;
+  padding: 3rem 1rem;
+  
+  color: var(--text-main);
 }
 
 .projects-container {
-  display: flex;
-  gap: 2rem;
-  transition: transform 0.1s ease-out;
-  will-change: transform;
-}
-
-.project-card {
-  flex: 0 0 300px;
-  height: 400px;
-  background: #1e293b;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   text-align: center;
-  color: #fbbf24;
-  user-select: none;
+  max-width: 720px;
 }
 
-.project-card h3 {
-  margin-bottom: 1rem;
+.heading {
+  font-size: 2.5rem;
+  color: var(--secondary);
 }
 
-.project-card p {
-  color: #cbd5e1;
-  font-size: 1rem;
-  line-height: 1.4;
+.projects-description {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: var(--text-sub);
 }

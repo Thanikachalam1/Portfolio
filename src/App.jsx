@@ -3,27 +3,29 @@ import './App.css';
 import Header from "./Home/Header/header";
 import Home from './Home/home';
 import About from './About/about';
+import Projects from "./Projects/projects";
+import Contact from "./Contact/contact";
 
-import Projects from './Projects/projects';
-import Contact from './Contact/contact';
 import ParticlesBackground from './Background/background';
 import LazyCursor from './LazyCursor/LazyCursor';
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import { ssrImportKey } from "vite/module-runner";
+
 
 // Scroll to section when route changes (optional enhancement)
 function ScrollToSection() {
   const location = useLocation();
 
   useEffect(() => {
-    const sectionId = location.pathname.substring(1); // remove leading slash
-    if (sectionId) {
-      const el = document.getElementById(sectionId);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+  const sectionId = location.pathname.substring(1); // remove leading slash
+  
+  if (sectionId) {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  }, [location]);
+  }
+}, [location]);
+
 
   return null;
 }
@@ -51,23 +53,25 @@ function AppContent() {
     };
   }, []);
   useEffect(() => {
-    const sections = document.querySelectorAll("section[id]");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      {
-        threshold: 0.6
-      }
-    );
+  const sections = document.querySelectorAll("section[id]");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+         
+          setActiveSection(entry.target.id);
+        }
+      });
+    },
+    {
+      threshold: 0.6
+    }
+  );
 
-    sections.forEach(section => observer.observe(section));
-    return () => observer.disconnect();
-  }, []);
+  sections.forEach(section => observer.observe(section));
+  return () => observer.disconnect();
+}, []);
+
 
   return (
     <>
@@ -80,10 +84,10 @@ function AppContent() {
         <LazyCursor />
         <div className="content">
           <section id="home"><Home /></section>
-          <section id="about"><About /></section>
-          
-          <section id="projects"><Projects /></section>
-          <section id="contact"><Contact /></section>
+<section id="about"><About /></section>
+<section id="projects"><Projects /></section>
+<section id="contact"><Contact /></section>
+
         </div>
       </div>
     </>
