@@ -163,9 +163,10 @@ body, html {
     color: #ffffff;
   }
 
-  .nav-button::after {
-    left: 50%;
-    transform: translateX(-50%);
+ .nav-button::after {
+    left: 0;
+    transform: none;
+    width: 0%;
   }
 }
 

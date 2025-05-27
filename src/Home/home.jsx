@@ -1,8 +1,8 @@
-import React from "react";
+
 import './home.css';
 import TrueFocus from "../Animations/TrueFocus";
 import VariableProximity from "../Animations/VariableProximity";
-import FuzzyText from "../Animations/ScrollFloat";
+
 import { useRef } from "react";
 
 function Home(){
@@ -49,6 +49,8 @@ style={{position: 'relative'}}
 </div>
         </div>
       </div>
+
+      
     </div>
   )
 }
