@@ -3,32 +3,32 @@ import "./Projects.css";
 
 const projects = [
   {
-    title: "Project One",
-    description: "Description for project one.",
-    image: "/project1.jpg",
-    link: "#",
-    tech: ["React", "CSS"],
+    title: "1. Research Journal",
+    description: "A web-based journal platform I developed to showcase academic research papers from faculty, students, and researchers. It features a clean, user-friendly interface with advanced search and filter options to easily explore papers by domain, title, or author. Each paper includes detailed abstracts and downloadable PDFs, making research access simple and efficient. Built with a focus on accessibility, responsiveness, and seamless navigation.",
+    image: "/pictures/journal.png",
+    link: "https://ijrce.com/",
+    tech: ["React", "Tailwind"],
   },
   {
-    title: "Project Two",
-    description: "Description for project two.",
-    image: "/project2.jpg",
-    link: "#",
-    tech: ["Node.js", "MongoDB"],
+    title: "2. First Portfolio",
+    description: "Made when I thought mobile-first meant mobile-only. It's proudly allergic to desktop screens and runs best on phones from this decade. No animations, no responsiveness — just raw HTML ambition and pixel dreams. View on mobile... or risk broken layouts and broken hopes.",
+    image: "/pictures/portfolio.png",
+    link: "https://thanikachalam1.github.io/PortfolioOld/",
+    tech: ["Vannila JS"],
   },
   {
-    title: "Project Three",
-    description: "Description for project three.",
-    image: "/project3.jpg",
-    link: "#",
-    tech: ["Python", "Flask"],
+    title: "3. Flappy Bird",
+    description: "Built 3 years ago when I thought JavaScript was magic and debugging was optional. This game is a tribute to pixels, poor physics, and patience-testing. Spoiler: The bird’s main enemy isn’t gravity — it’s my questionable coding decisions. Tap to fly... and cry.",
+    image: "/pictures/flappy.png",
+    link: "https://thanikachalam1.github.io/PortfolioOld/flap.html",
+    tech: ["Vannila JS"],
   },
   {
-    title: "Project Four",
-    description: "Description for project four.",
-    image: "/project4.jpg",
-    link: "#",
-    tech: ["HTML", "JS"],
+    title: "4. Calculator using Tkinter",
+    description: "Built with Tkinter and fueled by caffeine, this calculator handles all your basic math needs—no judgment if you're using it just to add 7 + 8. It may not solve your life problems, but it'll definitely divide them... literally.",
+    image: "/pictures/calculator.png",
+    link: "https://thanikachalam1.github.io/PortfolioOld/about.html",
+    tech: ["Python"],
   },
 ];
 
@@ -38,25 +38,24 @@ const Projects = () => {
   useEffect(() => {
     const el = scrollContainerRef.current;
 
-    const handleWheel = (e) => {
-      const isInside =
-        el && el.getBoundingClientRect().top < window.innerHeight &&
-        el.getBoundingClientRect().bottom > 0;
+    // Reset scroll position when component mounts
+    el.scrollLeft = 0;
 
-      if (!isInside) return;
+    const handleWheel = (e) => {
+      const rect = el.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      if (!isVisible) return;
 
       if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-        if (
-          (e.deltaY < 0 && el.scrollLeft === 0) ||
-          (e.deltaY > 0 &&
-            el.scrollLeft + el.clientWidth >= el.scrollWidth - 1)
-        ) {
-          // Let the page scroll vertically if at horizontal ends
+        const atLeftEdge = el.scrollLeft === 0;
+        const atRightEdge = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
+
+        if ((e.deltaY < 0 && atLeftEdge) || (e.deltaY > 0 && atRightEdge)) {
           return;
         }
 
         e.preventDefault();
-        el.scrollLeft += e.deltaY * 13.5; // Increase scroll speed
+        el.scrollLeft += e.deltaY * 15;
       }
     };
 
@@ -69,19 +68,18 @@ const Projects = () => {
 
   return (
     <section className="projects-wrapper snap-section" id="projects">
-      <h2 className="projects-title">My Works</h2>
       <div className="projects-container" ref={scrollContainerRef}>
         {projects.map((project, index) => (
           <div className="project-card" key={index}>
-            <img src={project.image} alt={project.title} />
+            <img src={project.image} alt={project.title} className="project-image" />
             <h3>{project.title}</h3>
             <p>{project.description}</p>
-            <a href={project.link} target="_blank" rel="noopener noreferrer">
+            <a style={{color:"#FFA500"}} href={project.link} target="_blank" rel="noopener noreferrer">
               View Project
             </a>
             <div className="tech-stack">
               {project.tech.map((tech, i) => (
-                <span key={i}>{tech}</span>
+                <span key={i} className="tech-item">{tech}</span>
               ))}
             </div>
           </div>
