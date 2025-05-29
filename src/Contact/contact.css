@@ -1,27 +1,175 @@
-.Contact {
-  min-height: 100vh;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+
+.contact-section *,
+.contact-section *::before,
+.contact-section *::after {
+  box-sizing: border-box;
+}
+
+.contact-section {
+  height: 100vh;                           
+  padding: 3rem 1.25rem;                  
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 3rem 1rem;
- 
-  color: var(--text-main);
+  align-items: center;
+  scroll-snap-align: start;
+  background: transparent;
 }
 
-.contact-container {
+
+.contact-wrapper {
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1.25rem;
+  width: 100%;
+  max-width: 1000px;
+  max-height: 100%;                     
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;                 
+  gap: 2rem;
+  overflow-y: auto;                      
+  box-shadow: 0 0 32px rgba(0, 0, 0, 0.18);
+}
+
+
+.contact-left {
+  flex: 1;
   text-align: center;
-  max-width: 720px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.heading {
-  font-size: 2.5rem;
-  color: var(--secondary);
+.contact-left h2 {
+  font-size: clamp(2rem, 6vw, 2.8rem);   
+  margin-bottom: 0.4rem;
 }
 
-.contact-description {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  color: var(--text-sub);
+.contact-left p {
+  font-size: clamp(0.95rem, 3.8vw, 1.1rem);
+  opacity: 0.85;
+  margin-bottom: 1.2rem;
+}
+
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: clamp(1.6rem, 6vw, 2rem);
+}
+
+.social-icons a {
+  color: #ffffff;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.social-icons a:hover { transform: scale(1.18); }
+.social-icons a:nth-child(1):hover { color: #0a66c2; }   /* LinkedIn  */
+
+.social-icons a:nth-child(3):hover { color: #ffa116;}    /* LeetCode  */
+.social-icons a:nth-child(4):hover { color: #d14836;}    /* Gmail     */
+
+
+.contact-form {
+  flex: 2;                             
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.15rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  resize: none;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.25);
+}
+
+.contact-form textarea { height: 150px; }
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder { color: #dcdcdc; }
+
+.contact-form button {
+  padding: 0.9rem;
+  border: none;
+  border-radius: 0.75rem;
+  background: #FFA500;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 114, 255, 0.4);
+}
+
+
+@media (min-width: 768px) {
+  .contact-wrapper {
+    flex-direction: row;              
+    padding: 3rem;
+    gap: 3rem;
+  }
+
+  .contact-form { gap: 1.4rem; }
+}
+
+
+@media (min-width: 1200px) {
+  .contact-wrapper { padding: 3.5rem 4rem; }
+
+  .contact-left h2 { font-size: 3rem; }
+  .social-icons { gap: 2rem; font-size: 2.2rem; }
+
+  .contact-form textarea { height: 180px; }
+}
+.custom-alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1db954; /* green for success */
+  color: white;
+  padding: 14px 28px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.4s ease-out, fadeUp 0.5s ease-in 3.5s forwards;
+  font-size: 16px;
+  z-index: 9999;
+}
+
+.custom-alert.error {
+  background-color: #e63946; /* red for error */
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateX(-50%) translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-100%);
+  }
 }

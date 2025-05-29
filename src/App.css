@@ -1,3 +1,4 @@
+
 .App {
   overflow-y: scroll; /* Enable vertical scrolling */
   scroll-snap-type: y mandatory; /* Vertical scroll snap */

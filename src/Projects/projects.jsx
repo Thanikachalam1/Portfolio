@@ -4,28 +4,32 @@ import "./Projects.css";
 const projects = [
   {
     title: "1. Research Journal",
-    description: "A web-based journal platform I developed to showcase academic research papers from faculty, students, and researchers. It features a clean, user-friendly interface with advanced search and filter options to easily explore papers by domain, title, or author. Each paper includes detailed abstracts and downloadable PDFs, making research access simple and efficient. Built with a focus on accessibility, responsiveness, and seamless navigation.",
+    description:
+      "A web-based journal platform I developed to showcase academic research papers from faculty, students, and researchers. It features a clean, user-friendly interface with advanced search and filter options to easily explore papers by domain, title, or author. Each paper includes detailed abstracts and downloadable PDFs, making research access simple and efficient. Built with a focus on accessibility, responsiveness, and seamless navigation.",
     image: "/pictures/journal.png",
     link: "https://ijrce.com/",
     tech: ["React", "Tailwind"],
   },
   {
     title: "2. First Portfolio",
-    description: "Made when I thought mobile-first meant mobile-only. It's proudly allergic to desktop screens and runs best on phones from this decade. No animations, no responsiveness — just raw HTML ambition and pixel dreams. View on mobile... or risk broken layouts and broken hopes.",
+    description:
+      "Made when I thought mobile-first meant mobile-only. It's proudly allergic to desktop screens and runs best on phones from this decade. No animations, no responsiveness — just raw HTML ambition and pixel dreams. View on mobile... or risk broken layouts and broken hopes.",
     image: "/pictures/portfolio.png",
     link: "https://thanikachalam1.github.io/PortfolioOld/",
     tech: ["Vannila JS"],
   },
   {
     title: "3. Flappy Bird",
-    description: "Built 3 years ago when I thought JavaScript was magic and debugging was optional. This game is a tribute to pixels, poor physics, and patience-testing. Spoiler: The bird’s main enemy isn’t gravity — it’s my questionable coding decisions. Tap to fly... and cry.",
+    description:
+      "Built 3 years ago when I thought JavaScript was magic and debugging was optional. This game is a tribute to pixels, poor physics, and patience-testing. Spoiler: The bird’s main enemy isn’t gravity — it’s my questionable coding decisions. Tap to fly... and cry.",
     image: "/pictures/flappy.png",
     link: "https://thanikachalam1.github.io/PortfolioOld/flap.html",
     tech: ["Vannila JS"],
   },
   {
     title: "4. Calculator using Tkinter",
-    description: "Built with Tkinter and fueled by caffeine, this calculator handles all your basic math needs—no judgment if you're using it just to add 7 + 8. It may not solve your life problems, but it'll definitely divide them... literally.",
+    description:
+      "Built with Tkinter and fueled by caffeine, this calculator handles all your basic math needs—no judgment if you're using it just to add 7 + 8. It may not solve your life problems, but it'll definitely divide them... literally.",
     image: "/pictures/calculator.png",
     link: "https://thanikachalam1.github.io/PortfolioOld/about.html",
     tech: ["Python"],
@@ -33,53 +37,56 @@ const projects = [
 ];
 
 const Projects = () => {
-  const scrollContainerRef = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    const el = scrollContainerRef.current;
+    const container = containerRef.current;
+    if (!container) return;
 
-    // Reset scroll position when component mounts
-    el.scrollLeft = 0;
+    const onWheel = (e) => {
+      const deltaY = e.deltaY;
 
-    const handleWheel = (e) => {
-      const rect = el.getBoundingClientRect();
-      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-      if (!isVisible) return;
+      const canScrollLeft = container.scrollLeft > 0;
+      const canScrollRight =
+        container.scrollLeft + container.clientWidth < container.scrollWidth - 1;
 
-      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-        const atLeftEdge = el.scrollLeft === 0;
-        const atRightEdge = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
-
-        if ((e.deltaY < 0 && atLeftEdge) || (e.deltaY > 0 && atRightEdge)) {
-          return;
-        }
-
+      if ((deltaY > 0 && canScrollRight) || (deltaY < 0 && canScrollLeft)) {
         e.preventDefault();
-        el.scrollLeft += e.deltaY * 15;
+        container.scrollBy({
+          left: deltaY,
+          behavior: "smooth",
+        });
       }
     };
 
-    window.addEventListener("wheel", handleWheel, { passive: false });
+    container.addEventListener("wheel", onWheel, { passive: false });
 
     return () => {
-      window.removeEventListener("wheel", handleWheel);
+      container.removeEventListener("wheel", onWheel);
     };
   }, []);
 
   return (
     <section className="projects-wrapper snap-section" id="projects">
-      <div className="projects-container" ref={scrollContainerRef}>
+      <div className="projects-container" ref={containerRef}>
         {projects.map((project, index) => (
           <div className="project-card" key={index}>
             <img src={project.image} alt={project.title} className="project-image" />
             <h3>{project.title}</h3>
             <p>{project.description}</p>
-            <a style={{color:"#FFA500"}} href={project.link} target="_blank" rel="noopener noreferrer">
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-link"
+            >
               View Project
             </a>
             <div className="tech-stack">
               {project.tech.map((tech, i) => (
-                <span key={i} className="tech-item">{tech}</span>
+                <span key={i} className="tech-item">
+                  {tech}
+                </span>
               ))}
             </div>
           </div>
