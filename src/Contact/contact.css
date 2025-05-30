@@ -6,6 +6,7 @@
 }
 
 .contact-section {
+  margin-top: -600px;
   height: 100vh;                           
   padding: 3rem 1.25rem;                  
   display: flex;
@@ -104,7 +105,7 @@
   padding: 0.9rem;
   border: none;
   border-radius: 0.75rem;
-  background: #FFA500;
+  background: #ffa500;
   color: #fff;
   font-weight: 600;
   font-size: 1rem;
@@ -123,6 +124,7 @@
     flex-direction: row;              
     padding: 3rem;
     gap: 3rem;
+    
   }
 
   .contact-form { gap: 1.4rem; }
@@ -153,7 +155,7 @@
 }
 
 .custom-alert.error {
-  background-color: #e63946; /* red for error */
+  background-color: #e63946; /* #ffa500 for error */
 }
 
 @keyframes slideDown {
@@ -173,3 +175,37 @@
     transform: translateX(-50%) translateY(-100%);
   }
 }
+@media (max-width: 400px){
+  .contact-section{
+    margin-top: -300px;
+  }
+}
+
+@media only screen and (max-width: 768px) and (max-height: 1024px) and (orientation: portrait) {
+  .contact-section{
+    margin-top: -80vh;
+  }
+}
+
+@media only screen and (max-width: 820px) and (max-height: 1180px) and (orientation: portrait) {
+  .contact-section{
+    margin-top: -90vh;
+  }
+}
+
+@media only screen and (max-width: 1024px) and (max-height: 1366px) and (orientation: portrait) {
+  .contact-section{
+    margin-top: -90vh;
+  }
+}
+
+@media only screen and (max-width: 912px) and (max-height: 1368px) and (orientation: portrait) {
+  .contact-section{
+    margin-top: -90vh;
+  }
+}
+
+@media only screen and (max-width: 1024px) and (max-height: 600px) and (orientation: landscape) {
+  .contact-section{
+    margin-top: -25vh;
+  }}

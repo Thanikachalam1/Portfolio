@@ -21,15 +21,14 @@ function About() {
         </div>
 
         <div className="skills-section">
-          <h3 style={{color : "#FFA500" }}>My Tech Stack</h3>
+          <h3 style={{color : "#ffa500" }}>My Tech Stack</h3>
           <div className="tech-scroll">
             <span className="tech-chip">React</span>
             <span className="tech-chip">JavaScript</span>
             <span className="tech-chip">Python</span>
             <span className="tech-chip">Flask</span>
             <span className="tech-chip">MySQL</span>
-            <span className="tech-chip">HTML</span>
-            <span className="tech-chip">CSS</span>
+            <span className="tech-chip">Tailwind</span>
             <span className="tech-chip">Git</span>
             <span className="tech-chip">GitHub</span>
           </div>

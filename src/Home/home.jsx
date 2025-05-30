@@ -26,7 +26,7 @@ const containerRef = useRef(null);
               sentence="Developer Content-Creator"
               manualMode={false}
               blurAmount={5}
-              borderColor="#FFA500"
+              borderColor="#ffa500"
               animationDuration={0.5}
               pauseBetweenAnimations={1}
             />

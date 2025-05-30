@@ -31,7 +31,7 @@ function Header({ activeSection }) {
   </Link>
 </li>
 <li>
-  <Link to="/projects" className={`nav-button ${isActive('projects')}`} onClick={closeMenu}>
+  <Link to="/Portfolio/projects" className={`nav-button ${isActive('projects')}`} onClick={closeMenu}>
     Projects
   </Link>
 </li>

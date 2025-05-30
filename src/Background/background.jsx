@@ -39,7 +39,7 @@ const ParticlesBackground = () => {
           "links": { "opacity": 0.1 }
         },
         "push": {
-          "quantity": 16
+          "quantity": 5
         }
       }
     },
@@ -49,7 +49,7 @@ const ParticlesBackground = () => {
         "color": { "value": "#ffffff" },
         "distance": 100,
         "enable": true,
-        "opacity": 0.7,
+        "opacity": 0.5,
         "width": 1
       },
       "move": {
@@ -59,7 +59,7 @@ const ParticlesBackground = () => {
       },
       "number": {
         "density": { "enable": true, "width": 1920, "height": 1080 },
-        "value": 200
+        "value": 150
       },
       "opacity": {
         "value": { "min": 0.1, "max": 0.3 },
@@ -87,7 +87,7 @@ const ParticlesBackground = () => {
     "name": "Parallax",
     "motion": {
       "disable": false,
-      "reduce": {
+      "#ffa500uce": {
         "factor": 4,
         "value": true
       }

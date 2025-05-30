@@ -1,7 +1,7 @@
 
 .App {
   overflow-y: scroll; /* Enable vertical scrolling */
-  scroll-snap-type: y mandatory; /* Vertical scroll snap */
+  
   scroll-behavior: smooth; /* Smooth scrolling for navigation */
   position: relative;
   height: 100vh; /* Full viewport height */
@@ -19,8 +19,7 @@
 .Projects,
 .Contact {
   height: 100vh; /* Full viewport height for each section */
-  scroll-snap-align: start; /* Ensure each section snaps to the top */
-  scroll-snap-stop: always; /* Force snap on specific sections */
+ 
   display: flex;
   justify-content: center; /* Center content horizontally */
   align-items: center;

@@ -6,7 +6,7 @@ body {
 .lazy-cursor {
   width: 18px;
   height: 18px;
-  background-color: #FFA500;
+  background-color: #ffa500;
   border: 2px solid black;
   border-radius: 50%;
   position: fixed;

@@ -43,7 +43,7 @@ function Contact() {
         setAlert("Something went wrong. Please try again.");
       }
     } catch (error) {
-      setAlert("An error occurred. Please try again later.");
+      setAlert("An error occur#ffa500. Please try again later.");
     }
   };
 

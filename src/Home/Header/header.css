@@ -59,7 +59,7 @@ body, html {
   bottom: 4px;
   width: 0%;
   height: 2px;
-  background-color: #FFA500;
+  background-color: #ffa500;
   transition: width 0.3s ease;
 }
 
@@ -86,7 +86,7 @@ body, html {
   position: absolute;
   height: 3px;
   width: 100%;
-  background-color: #FFA500;
+  background-color: #ffa500;
   left: 0;
   border-radius: 2px;
   transition: all 0.4s ease;
@@ -200,7 +200,7 @@ body, html {
   bottom: 4px;
   width: 0%;
   height: 2px;
-  background-color: #FFA500;
+  background-color: #ffa500;
   transition: width 0.3s ease;
 }
 

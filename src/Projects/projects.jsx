@@ -1,98 +1,105 @@
-import React, { useRef, useEffect } from "react";
-import "./Projects.css";
+import React, { useState, useEffect, useRef } from 'react';
+import './Projects.css';
 
 const projects = [
   {
     title: "1. Research Journal",
     description:
-      "A web-based journal platform I developed to showcase academic research papers from faculty, students, and researchers. It features a clean, user-friendly interface with advanced search and filter options to easily explore papers by domain, title, or author. Each paper includes detailed abstracts and downloadable PDFs, making research access simple and efficient. Built with a focus on accessibility, responsiveness, and seamless navigation.",
-    image: "/pictures/journal.png",
+      "A web-based journal platform to showcase academic research with search, filters, and downloadable PDFs.",
+    image: "/Portfolio/pictures/journal.png",
     link: "https://ijrce.com/",
     tech: ["React", "Tailwind"],
   },
   {
     title: "2. First Portfolio",
     description:
-      "Made when I thought mobile-first meant mobile-only. It's proudly allergic to desktop screens and runs best on phones from this decade. No animations, no responsiveness — just raw HTML ambition and pixel dreams. View on mobile... or risk broken layouts and broken hopes.",
-    image: "/pictures/portfolio.png",
+      "Mobile-only HTML portfolio built when responsiveness was a mystery. Best viewed on phones.",
+    image: "/Portfolio/pictures/portfolio.png",
     link: "https://thanikachalam1.github.io/PortfolioOld/",
-    tech: ["Vannila JS"],
+    tech: ["Vanilla JS"],
   },
   {
     title: "3. Flappy Bird",
     description:
-      "Built 3 years ago when I thought JavaScript was magic and debugging was optional. This game is a tribute to pixels, poor physics, and patience-testing. Spoiler: The bird’s main enemy isn’t gravity — it’s my questionable coding decisions. Tap to fly... and cry.",
-    image: "/pictures/flappy.png",
+      "A nostalgic JavaScript flappy bird game built in my early days of coding. Poor physics included.",
+    image: "/Portfolio/pictures/flappy.png",
     link: "https://thanikachalam1.github.io/PortfolioOld/flap.html",
-    tech: ["Vannila JS"],
+    tech: ["Vanilla JS"],
   },
   {
     title: "4. Calculator using Tkinter",
     description:
-      "Built with Tkinter and fueled by caffeine, this calculator handles all your basic math needs—no judgment if you're using it just to add 7 + 8. It may not solve your life problems, but it'll definitely divide them... literally.",
-    image: "/pictures/calculator.png",
+      "A Python GUI calculator made using Tkinter. Does math, not miracles.",
+    image: "/Portfolio/pictures/calculator.png",
     link: "https://thanikachalam1.github.io/PortfolioOld/about.html",
     tech: ["Python"],
   },
 ];
 
 const Projects = () => {
+  const [scrollProgress, setScrollProgress] = useState(0);
   const containerRef = useRef(null);
 
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+    let timeout;
 
-    const onWheel = (e) => {
-      const deltaY = e.deltaY;
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const totalHeight = windowHeight * 4; // 200vh
+      const progress = Math.min(Math.max(scrollPosition / totalHeight, 0), 1);
 
-      const canScrollLeft = container.scrollLeft > 0;
-      const canScrollRight =
-        container.scrollLeft + container.clientWidth < container.scrollWidth - 1;
+      // console.log('scrollY:', scrollPosition, 'progress:', progress);
 
-      if ((deltaY > 0 && canScrollRight) || (deltaY < 0 && canScrollLeft)) {
-        e.preventDefault();
-        container.scrollBy({
-          left: deltaY,
-          behavior: "smooth",
-        });
-      }
+      setScrollProgress(progress);
+
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        if (containerRef.current) {
+          const containerWidth = containerRef.current.scrollWidth;
+          const scrollX = progress * (containerWidth - window.innerWidth);
+          containerRef.current.style.transform = `translateX(-${scrollX}px)`;
+        }
+      }, 100); // Debounce for smooth scrolling
     };
 
-    container.addEventListener("wheel", onWheel, { passive: false });
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
-      container.removeEventListener("wheel", onWheel);
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timeout);
     };
   }, []);
 
   return (
-    <section className="projects-wrapper snap-section" id="projects">
-      <div className="projects-container" ref={containerRef}>
+    <div className="projects-container" id = "projects">
+      <div className="projects-wrapper" ref={containerRef}>
         {projects.map((project, index) => (
-          <div className="project-card" key={index}>
+          <div key={index} className="project-card">
             <img src={project.image} alt={project.title} className="project-image" />
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-link"
-            >
-              View Project
-            </a>
-            <div className="tech-stack">
-              {project.tech.map((tech, i) => (
-                <span key={i} className="tech-item">
-                  {tech}
-                </span>
-              ))}
+            <div className="project-content">
+              <h2 className="project-title">{project.title}</h2>
+              <p className="project-description">{project.description}</p>
+              <div className="project-tech">
+                {project.tech.map((techItem, techIndex) => (
+                  <span key={techIndex} className="tech-badge">
+                    {techItem}
+                  </span>
+                ))}
+              </div>
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-link"
+              >
+                View Project
+              </a>
             </div>
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 
