@@ -19,7 +19,8 @@ body, html {
   right: 0;
   
   backdrop-filter: blur(10px); 
-  -webkit-backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px); /* for Safari support */
+  padding: 18px 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,7 +53,7 @@ body, html {
   overflow: hidden;
 }
 
-
+/* Hover/active underline effect */
 .nav-button::after {
   content: "";
   position: absolute;
@@ -193,7 +194,7 @@ body, html {
   overflow: hidden;
 }
 
-
+/* Underline effect for all buttons */
 .nav-button::after {
   content: "";
   position: absolute;
