@@ -13,7 +13,7 @@ const projects = [
   {
     title: "2. First Portfolio",
     description:
-      "Mobile-only HTML portfolio built when responsiveness was a mystery. Best viewed on phones.",
+      "My first portfolio: strictly mobile-only — desktops are just jealous! Warning: may cause thumb cramps and random bursts of nostalgia",
     image: "/Portfolio/pictures/portfolio.png",
     link: "https://thanikachalam1.github.io/PortfolioOld/",
     tech: ["Vanilla JS"],
@@ -21,18 +21,10 @@ const projects = [
   {
     title: "3. Flappy Bird",
     description:
-      "A nostalgic JavaScript flappy bird game built in my early days of coding. Poor physics included.",
+      "Bird goes up… eventually. Maybe. Poor physics included",
     image: "/Portfolio/pictures/flappy.png",
     link: "https://thanikachalam1.github.io/PortfolioOld/flap.html",
     tech: ["Vanilla JS"],
-  },
-  {
-    title: "4. Calculator using Tkinter",
-    description:
-      "A Python GUI calculator made using Tkinter. Does math, not miracles.",
-    image: "/Portfolio/pictures/calculator.png",
-    link: "https://thanikachalam1.github.io/PortfolioOld/about.html",
-    tech: ["Python"],
   },
 ];
 
@@ -72,7 +64,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <div className="projects-container" id = "projects">
+    <section className="projects-container" id = "projects">
       <div className="projects-wrapper" ref={containerRef}>
         {projects.map((project, index) => (
           <div key={index} className="project-card">
@@ -99,7 +91,7 @@ const Projects = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

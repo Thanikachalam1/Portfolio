@@ -9,7 +9,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400vh; /* Set container height to 200vh */
+  height: 300vh; 
   padding: 20px;
   box-sizing: border-box;
   
@@ -97,13 +97,13 @@ body {
 }
 
 
-/* Default: Desktop and larger */
+
 .project-card {
   width: 50vw;
   height: 60vh;
 }
 
-/* Large tablets & small laptops (1024px and below) */
+
 @media (max-width: 1024px) {
   .project-card {
     width: 70vw;
@@ -124,7 +124,6 @@ body {
   }
 }
 
-/* Tablets (768px and below) */
 @media (max-width: 768px) {
   .project-card {
     width: 85vw;
@@ -149,7 +148,7 @@ body {
   }
 }
 
-/* Medium mobiles (600px and below) */
+
 @media (max-width: 600px) {
   .project-card {
     width: 90vw;
@@ -180,7 +179,7 @@ body {
   }
 }
 
-/* Small mobiles (480px and below) */
+
 @media (max-width: 480px) {
   .project-card {
     height: 50vh;
@@ -199,7 +198,7 @@ body {
   }
 }
 
-/* Extra small phones (400px and below) */
+
 @media (max-width: 400px) {
   .project-card {
     width: 95vw;
@@ -225,11 +224,13 @@ body {
     padding: 6px 10px;
   }
 }
+
 @media only screen and (max-width: 540px) and (max-height: 720px) and (orientation: portrait) {
   .project-card{
     height: 400px;
   }
 }
+
 @media only screen and (max-width: 1024px) and (max-height: 600px) and (orientation: landscape) {
   .project-card{
     height: 70vh;

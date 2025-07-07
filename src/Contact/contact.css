@@ -68,11 +68,9 @@
 }
 
 .social-icons a:hover { transform: scale(1.18); }
-.social-icons a:nth-child(1):hover { color: #0a66c2; }   /* LinkedIn  */
-
-.social-icons a:nth-child(3):hover { color: #ffa116;}    /* LeetCode  */
-.social-icons a:nth-child(4):hover { color: #d14836;}    /* Gmail     */
-
+.social-icons a:nth-child(1):hover { color: #0a66c2; }   
+.social-icons a:nth-child(3):hover { color: #ffa116;}  
+.social-icons a:nth-child(4):hover { color: #d14836;}    
 
 .contact-form {
   flex: 2;                             
@@ -144,7 +142,7 @@
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #1db954; /* green for success */
+  background-color: #1db954; 
   color: white;
   padding: 14px 28px;
   border-radius: 8px;
@@ -155,7 +153,7 @@
 }
 
 .custom-alert.error {
-  background-color: #e63946; /* #ffa500 for error */
+  background-color: #e63946; 
 }
 
 @keyframes slideDown {
@@ -207,5 +205,10 @@
 
 @media only screen and (max-width: 1024px) and (max-height: 600px) and (orientation: landscape) {
   .contact-section{
-    margin-top: -25vh;
+    margin-top: -20vh;
   }}
+
+
+.contact-form textarea {
+  font-family: inherit;
+}

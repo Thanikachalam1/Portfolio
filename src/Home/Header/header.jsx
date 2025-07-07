@@ -1,50 +1,59 @@
+// src/Home/Header/header.jsx
 import React, { useState } from "react";
-import './Header.css';
-import { Link } from "react-router-dom";
+import './header.css';
 
-function Header({ activeSection }) {
-  const [isMobile, setIsMobile] = useState(false);
+const Header = ({ activeSection, setActiveSection }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMobile = () => setIsMobile(!isMobile);
-  const closeMenu = () => setIsMobile(false);
+  const sections = [
+    { id: "home", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "projects", label: "Projects" },
+    { id: "contact", label: "Contact" },
+  ];
 
-  const isActive = (id) => activeSection === id ? 'active' : '';
+  const handleClick = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      setActiveSection(id);
+      setMenuOpen(false); // close menu on nav click (mobile)
+    }
+  };
 
   return (
-    <div className="HeaderContainer">
-      <div className={`hamburger ${isMobile ? 'active' : ''}`} onClick={toggleMobile}>
+    <header className="HeaderContainer">
+      <div
+        className={`hamburger ${menuOpen ? "active" : ""}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle menu"
+        aria-expanded={menuOpen}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => { if (e.key === 'Enter') setMenuOpen(!menuOpen); }}
+      >
         <span></span>
         <span></span>
         <span></span>
       </div>
 
-      <div className={`nav-section ${isMobile ? 'active' : ''}`}>
+      <nav className={`nav-section ${menuOpen ? "active" : ""}`}>
         <ul>
-          <li>
-  <Link to="/home" className={`nav-button ${isActive('home')}`} onClick={closeMenu}>
-    Home
-  </Link>
-</li>
-<li>
-  <Link to="/about" className={`nav-button ${isActive('about')}`} onClick={closeMenu}>
-    About
-  </Link>
-</li>
-<li>
-  <Link to="/Portfolio/projects" className={`nav-button ${isActive('projects')}`} onClick={closeMenu}>
-    Projects
-  </Link>
-</li>
-<li>
-  <Link to="/contact" className={`nav-button ${isActive('contact')}`} onClick={closeMenu}>
-    Hire Me
-  </Link>
-</li>
-
+          {sections.map(({ id, label }) => (
+            <li key={id}>
+              <button
+                className={`nav-button ${activeSection === id ? "active" : ""}`}
+                onClick={() => handleClick(id)}
+                aria-current={activeSection === id ? "page" : undefined}
+              >
+                {label}
+              </button>
+            </li>
+          ))}
         </ul>
-      </div>
-    </div>
+      </nav>
+    </header>
   );
-}
+};
 
 export default Header;

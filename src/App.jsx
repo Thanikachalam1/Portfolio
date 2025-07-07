@@ -7,29 +7,12 @@ import Projects from "./Projects/projects";
 import Contact from "./Contact/contact";
 import ParticlesBackground from './Background/background';
 import LazyCursor from './LazyCursor/LazyCursor';
-import { useLocation } from "react-router-dom";
-
-// Scroll to section when route changes
-function ScrollToSection() {
-  const location = useLocation();
-
-  useEffect(() => {
-    const sectionId = location.pathname.substring(1);
-    if (sectionId) {
-      const el = document.getElementById(sectionId);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
-  }, [location]);
-
-  return null;
-}
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
+   
     const handleContextMenu = (e) => e.preventDefault();
     const handleCopy = (e) => e.preventDefault();
     const handleSelectStart = (e) => e.preventDefault();
@@ -47,6 +30,7 @@ function App() {
 
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
@@ -55,21 +39,21 @@ function App() {
           }
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0.2 }
     );
 
     sections.forEach(section => observer.observe(section));
+
     return () => observer.disconnect();
   }, []);
 
   return (
     <>
-      <ScrollToSection />
       <div className="App">
         <div className="background">
           <ParticlesBackground />
         </div>
-        <Header activeSection={activeSection} />
+        <Header activeSection={activeSection} setActiveSection={setActiveSection} />
         <LazyCursor />
         <div className="content">
           <section id="home"><Home /></section>

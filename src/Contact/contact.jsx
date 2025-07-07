@@ -38,7 +38,7 @@ function Contact() {
       if (res.ok) {
         setFormData({ name: "", email: "", message: "" });
         setAlert("Message sent successfully!");
-        setTimeout(() => setAlert(""), 4000); // alert disappears after 4s
+        setTimeout(() => setAlert(""), 4000); 
       } else {
         setAlert("Something went wrong. Please try again.");
       }

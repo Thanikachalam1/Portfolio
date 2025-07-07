@@ -1,6 +1,5 @@
-import React from "react";
+
 import "./about.css";
-import { color } from "framer-motion";
 
 function About() {
   return (
@@ -24,7 +23,7 @@ function About() {
           <h3 style={{color : "#ffa500" }}>My Tech Stack</h3>
           <div className="tech-scroll">
             <span className="tech-chip">React</span>
-            <span className="tech-chip">JavaScript</span>
+            <span className="tech-chip">React Native</span>
             <span className="tech-chip">Python</span>
             <span className="tech-chip">Flask</span>
             <span className="tech-chip">MySQL</span>

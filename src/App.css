@@ -1,16 +1,15 @@
 
 .App {
-  overflow-y: scroll; /* Enable vertical scrolling */
-  
-  scroll-behavior: smooth; /* Smooth scrolling for navigation */
+  overflow-y: scroll; 
+  scroll-behavior: smooth; 
   position: relative;
-  height: 100vh; /* Full viewport height */
+  height: 100vh; 
   
 }
 
 .content {
   display: flex;
-  flex-direction: column; /* Stack sections vertically */
+  flex-direction: column; 
 }
 
 .Home,
@@ -18,12 +17,12 @@
 .Skills,
 .Projects,
 .Contact {
-  height: 100vh; /* Full viewport height for each section */
+  height: 100vh; 
  
   display: flex;
-  justify-content: center; /* Center content horizontally */
+  justify-content: center; 
   align-items: center;
-  z-index: 200; /* Center content vertically */
+  z-index: 200; 
 }
 
 body,
@@ -33,7 +32,7 @@ html,
   padding: 0;
   height: 100%;
   background-color: transparent;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-x: hidden; 
 }
 
 .background {

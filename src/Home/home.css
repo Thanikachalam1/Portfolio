@@ -5,7 +5,6 @@
     align-items: center;
     justify-content: center;
     z-index: 100000;
-
 }
 
 .intro{
@@ -22,15 +21,13 @@
 
 .hi{
     color: #ffa500;
-    
 }
-
-
 
 .specialization{
     font-weight: 2000;
     font-size: 30px;
 }
+
 
 @media (max-width : 768px){
     .specialization{

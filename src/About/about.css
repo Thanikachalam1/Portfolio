@@ -11,7 +11,6 @@
 
 .About {
   min-height: 100vh;
-  
   color: var(--text-main);
   display: flex;
   align-items: center;
@@ -79,7 +78,7 @@
   background: var(--chip-hover);
 }
 
-/* Responsive */
+
 @media (max-width: 480px) {
   .heading {
     font-size: 2rem;
